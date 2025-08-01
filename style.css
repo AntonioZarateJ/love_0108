@@ -1,0 +1,45 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    background-color: #000; 
+}
+
+canvas {
+    display: block; 
+}
+
+#playMusicBtn {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    background: linear-gradient(145deg, #be91d8, #529cda);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ffffff;
+    z-index: 10;
+    transition: all 0.3s ease;
+    animation: fadeInButton 1.5s ease-in-out;
+}
+
+#playMusicBtn:hover {
+    transform: translateX(-50%) scale(1.05);
+    box-shadow: 0 0 25px #be91d8;
+}
+
+@keyframes fadeInButton {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}

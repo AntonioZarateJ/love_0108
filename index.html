@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Amo 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+
+    <button id="playMusicBtn">Nuestra canción 💖</button>
+
+    <audio id="loveSong" preload="auto" loop>
+        <source src="audio/cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+    <script>
+        const audio = document.getElementById('loveSong');
+        const button = document.getElementById('playMusicBtn');
+
+        button.addEventListener('click', () => {
+            audio.volume = 0;
+            audio.play().then(() => {
+                let vol = 0;
+                const fadeInterval = setInterval(() => {
+                    vol += 0.02;
+                    if (vol >= 1) {
+                        vol = 1;
+                        clearInterval(fadeInterval);
+                    }
+                    audio.volume = vol;
+                }, 100);
+
+                button.style.display = 'none';
+            }).catch(err => {
+                console.error("No se pudo reproducir la canción:", err);
+            });
+        });
+    </script>
+</body>
+</html>
